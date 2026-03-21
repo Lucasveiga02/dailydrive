@@ -1,0 +1,76 @@
+# =============================================================================
+# Daily Drive Configuration
+# =============================================================================
+# Copy this file to config.yaml and fill in your details:
+#   cp config.example.yaml config.yaml
+#
+# For help getting your Spotify credentials, see README.md
+# =============================================================================
+
+# --- Spotify App Credentials ---
+# Get these from https://developer.spotify.com/dashboard
+spotify:
+  client_id: "your-client-id-here"
+  client_secret: "your-client-secret-here"
+  redirect_uri: "http://localhost:8888/callback"
+
+# --- Your Playlist ---
+# The playlist where Daily Drive content will be placed.
+# Create an empty playlist in Spotify, then right-click > Share > Copy link.
+# The ID is the part after "playlist/" in the URL.
+# Example: https://open.spotify.com/playlist/37i9dQZF1DX... → ID is "37i9dQZF1DX..."
+playlist_id: "your-playlist-id-here"
+
+# --- Podcasts ---
+# Add your favorite podcasts here.
+# To find a show ID: open it in Spotify > Share > Copy link
+# Example: https://open.spotify.com/show/6z4NLXyHPga... → ID is "6z4NLXyHPga..."
+podcasts:
+  - name: "Freakonomics Radio"
+    id: "6z4NLXyHPga1UmSJsPK7G1"
+    episodes: 1          # How many recent episodes to include
+
+  - name: "The Daily"
+    id: "3IM0lmZxpFAY7CwMuv9H4g"
+    episodes: 1
+
+  - name: "TED Radio Hour"
+    id: "3lMFGBKTvRl5cniJMYHIuV"
+    episodes: 1
+
+# --- Music Sources ---
+# Where to pull songs from. You can mix different sources.
+music:
+  # Pull songs from existing playlists
+  # Find playlist IDs the same way as your target playlist above
+  playlists:
+    - name: "Your Favorite Playlist"
+      id: "your-playlist-id"
+
+    # You can add multiple playlists
+    # - name: "Chill Vibes"
+    #   id: "another-playlist-id"
+
+  # How many songs to include total
+  total_songs: 15
+
+  # Shuffle the songs? (true/false)
+  shuffle: true
+
+# --- Mix Pattern ---
+# Controls how podcasts and music are interleaved.
+# P = podcast episode, M = music track
+# The pattern repeats until all content is placed.
+#
+# Examples:
+#   "PMMM"     → 1 podcast, 3 songs, 1 podcast, 3 songs...
+#   "PMMMM"    → 1 podcast, 4 songs, repeat...
+#   "PMMPMMM"  → 1 podcast, 2 songs, 1 podcast, 3 songs...
+#   "PM"       → alternating podcast and song
+mix_pattern: "PMMM"
+
+# --- Schedule ---
+# When to refresh (used by the systemd timer, not the script itself)
+schedule:
+  time: "05:00"          # 24-hour format
+  timezone: "America/New_York"

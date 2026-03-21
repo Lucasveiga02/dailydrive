@@ -1,0 +1,14 @@
+[Unit]
+Description=Daily Drive Spotify Playlist Updater
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=%i
+WorkingDirectory=/home/%i/dailydrive
+ExecStart=/usr/bin/node /home/%i/dailydrive/index.js
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target
