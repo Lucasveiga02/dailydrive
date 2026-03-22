@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="img/dailydrive.jpg" alt="My Daily Drive" width="300">
+  <img src="https://raw.githubusercontent.com/patdeg/dailydrive/main/img/dailydrive.jpg" alt="My Daily Drive" width="300">
 </p>
 
 # Daily Drive
